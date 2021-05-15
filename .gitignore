@@ -22,4 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/config/google-map.json
+/config/config.js
+/config/fakeData.json

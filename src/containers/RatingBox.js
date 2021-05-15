@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import TimeInput from 'react-input-time';
 
-const AddCoords = ({ type }, ...props) => {
+const AddCoords = ({ type, setType, setStartTime, setEndTime, startTime, endTime, }, ...props) => {
+
 	const [ bounds, setBounrds ] = useState([]);
 	const [ rating, setRating ] = useState("3");
-	const [ startTime, setStatTime ] = useState([ '00:00', '23:59' ]);
-	const [ endTime, setEndTime ] = useState([ '00:00', '23:59' ]);
 	// const rectangle = new google.maps.Rectangle({
 	// 	strokeColor: '#FF0000',
 	// 	strokeOpacity: 0.0,
@@ -32,7 +31,7 @@ const AddCoords = ({ type }, ...props) => {
     const onStartTimeChange = (props) => {
         const { target } = props;
 		const { value } = target;
-        setStatTime(value);
+        setStartTime(value);
     }
     const onEndTimeChange = (props) => {
         const { target } = props;
@@ -130,15 +129,27 @@ const AddCoords = ({ type }, ...props) => {
 };
 
 const sToP = (state) => ({
-	loggedIn: state.user.loggedIn,
+	type: state.rate.type,
+	startTime: state.rate.startTime,
+	endTime: state.rate.endTime,
 });
 
 const dToP = (dispatch) => ({
-	login: (userData) =>
+	setType: (data) =>
 		dispatch({
-			type: 'USER/LOGIN',
-			payload: userData
-		})
+			type: 'CHANGE_RATE_TYPE',
+			payload: data
+		}),
+	setStartTime: (data) =>
+		dispatch({
+			type: 'CHANGE_RATE_START_TIME',
+			payload: data
+		}),
+	setEndTime: (data) =>
+		dispatch({
+			type: 'CHANGE_RATE_END_TIME',
+			payload: data
+		}),
 });
 
 export default connect(sToP, dToP)(AddCoords);

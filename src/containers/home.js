@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import '../css/App.css';
 
-import Map from '../components/map';
+import Map from '../components/editableMap';
 import RatingBox from './RatingBox';
+import Filter from './filter';
 
 const Home = () => {
-    const { type, setType } = useState("coords");
 
     return (
         <div className="container">
@@ -13,7 +14,8 @@ const Home = () => {
                     {/* <Map /> */}
                     {/* <Overlay type={type} /> */}
                 </div>
-                <RatingBox type={type} />
+                <Filter />
+                <RatingBox />
             </div>
         </div>
     )

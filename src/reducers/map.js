@@ -5,7 +5,7 @@ const initialState = {
     colorCoords: [],
   };
   
-  export default function userReducer(state = initialState, action) {
+  export default function mapReducer(state = initialState, action) {
     const { payload = {}, type } = action;
     const { coords } = payload;
   
