@@ -22,5 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/config/config.js
-/config/fakeData.json
+src/config/config.js
+src/config/fakeData.json
